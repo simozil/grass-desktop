@@ -91,7 +91,7 @@ def login_and_get_user_info(proxy):
             total_points = user_info['totalPoints']
             formatted_points = f"{total_points / 1000:.1f}K" if total_points < 1000000 else f"{total_points / 1000000:.1f}M"
             print(Fore.GREEN + f"Username: DISENSOR DEMI KEAMANAN | Total Points: {formatted_points}")
-            print(Fore.GREEN + f"Starting [ Sirkel Geneorous ] Grass Bot...")
+            print(Fore.GREEN + f"Starting [ Sirkel Generous ] Grass Bot...")
             time.sleep(2)
             return user_id
         except requests.exceptions.RequestException as e:
@@ -137,23 +137,13 @@ async def connect_to_wss(socks5_proxy, user_id, device_status):
             # await asyncio.sleep(random.randint(1, 10) / 10)
             custom_headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0",
-                "Pragma": "no-cache",
-                "Host": "proxy2.wynd.network:4444",
-                "Origin": "chrome-extension://ilehaonighjijnmpnagapkhpcdbhclfg",
-                
-                "Accept-Language": "en-US,en;q=0.9",
-                  "Accept-Encoding": "gzip, deflate, br, zstd",
-                "Upgrade": "websocket",
-                "Cache-Control": "no-cache",
-                "Connection": "Upgrade",
-                "Sec-WebSocket-Version": "13",
-                "Sec-WebSocket-Extensions": "permessage-deflate; client_max_window_bits"
+          
             }
             ssl_context = ssl.create_default_context()
             ssl_context.check_hostname = False
             ssl_context.verify_mode = ssl.CERT_NONE
-            uri = "wss://proxy.wynd.network:4650/"
-            server_hostname = "proxy.wynd.network"
+            uri = "wss://proxy2.wynd.network:4650/"
+            server_hostname = "proxy2.wynd.network"
             proxy = Proxy.from_url(socks5_proxy)
             
             async with proxy_connect(uri, proxy=proxy, ssl=ssl_context, server_hostname=server_hostname,
